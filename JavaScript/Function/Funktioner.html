@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ja</title>
+    <script>
+    
+        function check() {
+            var str = document.form1.textfield.value;
+            alert("Ditt namn innehåller " + str.length + " tecken. \nSista tecknet i namnet är " + str.charAt(str.length - 1) + ".");
+        }
+    </script>
+
+</head>
+
+<body>
+    <br>
+    <b>Skriv in ditt namn och klicka!</b>
+    <form name="form1" method="post" action="">
+        <input type="text" name="textfield">
+        <br>
+        <br>
+        <input type="button" name="Skicka" value="Klicka NUUUUUUUUUUUU!" onclick="check()">
+    </form>
+    
+    
+    
+</body>
+</html>

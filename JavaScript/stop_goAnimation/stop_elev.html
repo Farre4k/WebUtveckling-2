@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>stop demo</title>
+    <style>
+        
+        body{
+            background: url(destiny.jpg) no-repeat ;
+        }
+        div {
+            background: url(sz2.png)no-repeat;
+            background-size:cover;
+            position: absolute;
+            
+            left: 30px;
+            top: 150px;
+            width: 100px;
+            height: 150px;
+            margin: 5px;
+        }
+        button{
+            width:80px;
+            background-color:antiquewhite;
+            font-size:1.5em;
+            color:gray;
+            text-align: center;
+        }
+        #up{
+            margin-left: 85px;
+        }
+         #down{
+            margin-left: 85px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <button id="up">Up</button>
+    <br>
+    <button id="back">Left</button>
+    <button id="stop">Stop!</button>
+    <button id="go">Right</button>
+    <br>
+    <button id="down">Down</button>
+    
+    
+    <div class="block"></div>
+
+    <script>
+       $("#go").click(function(){
+           $(".block").animate({
+               left:"+=100px"
+           }, 500);
+       });
+
+       $("stop").click(function(){
+           $(".block").stop();
+       });
+
+       $("#back").click(function(){
+           $(".block").animate({
+               left:"-=100px"
+           }, 500);
+       });
+
+       $("#down").click(function(){
+           $(".block").animate({
+               top:"+=100px"
+           }, 500);
+       });
+
+       $("#up").click(function(){
+           $(".block").animate({
+               top:"-=100px"
+           }, 500);
+       });
+    </script>
+
+</body>
+
+</html>

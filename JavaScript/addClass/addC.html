@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p:first").toggleClass("intro");
+            });
+        });
+    
+    </script>
+
+    <style>
+        
+        .intro {
+            font-size: 150%;
+            color: gray;
+            background-color: lawngreen;
+            height: 100px;
+            width: 300px;
+        }
+        
+    </style>
+</head>
+<body>
+    <button>Lägg till clas till första p element</button>
+    <h1>En rubrik!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, enim.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, enim.</p>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+    font-family: arial;
+    color: #666;
+    padding: 0 20%;
+	}
+		img {
+		  width: 300px;
+		}
+		.hide {
+		  display: none;
+		}
+        li{
+            font-size:2em;
+        }
+
+	</style>
+</head>
+<body>
+	<header>
+    		<h1>Javascript Events</h1>
+	</header>
+	<main>
+		<h4>Bilder</h4>
+		 <ul>
+		 	<li><a data-img="dali-pic"  id="dali" href="#">Dali</a></li>
+		 	<li><a data-img="goya-pic"  id="goya" href="#">Goya</a></li>
+		 	<li><a data-img="greco-pic" id="greco" href="#">Greco</a></li>
+		 </ul>
+
+		<img src="Dali.jpg"  alt="" class="hide" id="dali-pic">
+		<img src="goya.jpg"  alt="" class="hide" id="goya-pic">
+		<img src="greco.jpg" alt="" class="hide" id="greco-pic">
+			  
+	</main>
+
+	<script>
+	       
+        var dali = document.getElementById("dali");
+        var daliPic = document.getElementById("dali-pic");
+        var goya = document.getElementById("goya");
+        var goyaPic = document.getElementById("goya-pic");
+        var greco = document.getElementById("greco");
+        var grecoPic = document.getElementById("greco-pic");
+        
+        
+        dali.addEventListener("click", function(){
+            if (daliPic.className === "hide"){
+                daliPic.className = "";
+            } else {
+                daliPic.className = "hide";
+            }
+        });
+        
+        goya.addEventListener("click", function(){
+            if (goyaPic.className === "hide"){
+                goyaPic.className = "";
+            } else {
+                goyaPic.className = "hide";
+            }
+        });
+        
+        greco.addEventListener("click", function(){
+            if (grecoPic.className === "hide"){
+                grecoPic.className = "";
+            } else {
+                grecoPic.className = "hide";
+            }
+        });
+
+
+
+	</script>
+</body>
+</html>

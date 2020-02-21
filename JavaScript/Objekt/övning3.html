@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+           
+           <button onclick="myFunction()">Klicka</button>
+            <div id="myDIV">
+                Detta är div-elementet som "togglas"
+            </div>
+            <p><b>Notera:</b> Elementet tar inte upp någon plats när "display"-egenskap sätts till "none"</p>
+            
+            <script>
+                
+                
+                
+                function myFunction(){
+                    var x = document.getElementById("myDIV");
+                    if (x.style.display === "hidden"){
+                        x.style.display = "visible";
+                    } else{
+                        x.style.display ="hidden";
+                    }
+                }
+    
+    
+    
+    </script>
+</body>
+</html>

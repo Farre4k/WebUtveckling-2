@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <script>
+    
+       (function(){
+           
+           'use strict';
+           var animal = {
+               color: '',
+               sound:'',
+               print:function(){
+               console.log('jag är' + this.color + 'och jag låter' + this.sound);
+           },
+               
+               init: function(color, sound){
+                   this.color = color;
+                   this.sound = sound;
+               }
+               
+           };
+       
+            var Cow = Object.create(animal);
+            Cow.init('brown' , 'Mooo');
+            Cow.print();
+       })();
+       
+            var Mouse = Object.create(animal);
+            Cow.init('gray' , 'peep');
+            Cow.print();
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="myFunction()">Klicka</button>
+    <div id="text">
+        Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok.
+    </div>
+
+    <script>
+        function myFunction() {
+            var toggle = document.getElementById("text");
+            if (toggle.style.display === "none") {
+                toggle.style.display = "block";
+            } else {
+                toggle.style.display = "none";
+            }
+        }
+    </script>
+
+</body></html>

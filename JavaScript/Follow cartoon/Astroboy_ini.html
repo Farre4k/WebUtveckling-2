@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <style type="text/css">
+        body {
+            background-image: url(space.png);
+            background-color: #000;
+        }
+
+        .left {
+
+            transform: scaleX(-1);
+           
+        }
+
+        .right {
+
+            transform: scaleX(1);
+
+        }
+
+        #bee {
+            transition: transform .1s
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bee">
+        <img src="astroboy.png">
+    </div>
+
+    <script>
+        
+        var bee = document.getElementById("bee");
+        document.addEventListener("mousemove", getMouse);
+        
+        bee.style.position = "absolute";
+        var beepos = {
+            x:0,
+            y:0
+        };
+        
+        setInterval(followMouse, 30);
+        
+        var mouse = {
+            x:0,
+            y:0
+        };
+        
+        var dir = "right";
+        
+        function getMouse(e){
+            mouse.x = e.pageX;
+            mouse.y = e.pageY;
+            
+            if (mouse.x > beepos.x){
+                dir = "right";
+            } else{
+                dir = "left";
+            }
+        }
+        
+        
+        function followMouse(){
+            
+            var distX = mouse.x - beepos.x;
+            var distY = mouse.y - beepos.y;
+            
+            beepos.x += distX / 5;
+            beepos.y += distY / 2;
+            
+            bee.style.left = beepos.x + "px";
+            bee.style.top = beepos.y + "px";
+            
+            if (dir == "right"){
+                bee.setAttribute("class", "right");
+            } else {
+                bee.setAttribute("class", "left");
+            }
+            
+        }
+     
+    </script>
+</body>
+
+</html>

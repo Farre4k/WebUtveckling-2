@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="300" style="border: 1px solid #000;"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        var grd = ctx.createLinearGradient(0, 250, 0, 0);
+        grd.addColorStop(0, "green");
+        grd.addColorStop(1, "aqua");
+        grd.addColorStop(0.5, "white")
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 500, 300);
+
+
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 3;
+        ctx.moveTo(310, 235);
+        ctx.lineTo(260, 300);
+        ctx.lineTo(360, 300);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.closePath();
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.arc(310, 190, 55, 0, 2 * Math.PI);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.stroke();
+
+
+
+        ctx.beginPath();
+        ctx.arc(290, 170, 6.5, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+
+
+        ctx.beginPath();
+        ctx.arc(330, 170, 6.5, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+
+
+        ctx.beginPath();
+        ctx.arc(310, 220, 30, 0, 1 * Math.PI, true);
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.font = "25px Arial";
+        ctx.fillStyle = "blue"
+        ctx.fillText("Varning för vågor!", 230, 100);
+
+        ctx.beginPath();
+        ctx.moveTo(150, 200);
+        ctx.lineTo(290, 260);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(150, 130);
+        ctx.lineTo(150, 250);
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.rect(100, 30, 100, 100);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(120, 80, 60, 0.6, 1.8 * Math.PI, true);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(117, 80, 40, 0.6, 1.8 * Math.PI, true);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(105, 80, 30, 0.6, 1.8 * Math.PI, true);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

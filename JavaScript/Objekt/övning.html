@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      font-family: Helvetica;
+    }
+    main{width:50%;
+      margin:auto;
+     }
+    .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    }
+
+    .active, .collapsible:hover {
+    background-color: #555;
+    }
+
+    .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Animerad Nedfällbar</h2>
+
+    
+    <button class="collapsible">Vem är Bamse?</button>
+    <div class="content">
+      <p>Bamse är en björn som blir jättestark när han äter farmors dunderhonung. Han är kompis med Skalman och lille Skutt.</p>
+    </div>
+
+   
+    <button class="collapsible">Vem är Ozzy Ozbourne?</button>
+    <div class="content">
+      <p>Ozzy är sångare i Black Sabbath och även soloartist. Han är ansedd att vara en av de mest framgångsrika artisterna inom genren hårdrock.</p>
+    </div>
+
+    <button class="collapsible">Finns Gud?</button>
+    <div class="content">
+      <p>42</p>
+    </div>
+
+    <button class="collapsible">Var bor tomten?</button>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </main>
+  <script>
+      
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+          
+          coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              
+              if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+              } else{
+                  content.style.maxHeight = content.scrollHeight + "px";
+              }
+          });
+      }
+  
+</script>
+
+</body>
+</html>

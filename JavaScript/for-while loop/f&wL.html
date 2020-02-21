@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+
+<script>
+    
+    const MIN = 1;
+    const MAX = 100;
+    
+    
+    var secretNumber = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
+        var guesses = 0;
+        var hint = '';
+    
+    do {
+        
+        var input = prompt(`please enter a number between ${MIN} and ${MAX}` + hint);
+        var number = parseInt(input);
+        guesses++;
+        
+        if (number > secretNumber){
+            hint = ', and less than' + number;
+        }
+        
+        else if(number < secretNumber){
+            hint = ', and greater than ' + number;
+        }
+        else if(number == secretNumber){
+            alert(`Bravo! You're correct after ${guesses} guess(es).`);
+        }
+        
+        
+    }
+
+    while(number != secretNumber);
+    
+    
+    
+</script>
+    
+    
+</body>
+</html>

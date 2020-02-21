@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="1920" height="1040" style="background-color: aqua;"></canvas>
+
+    <script>
+            var canvas = document.getElementById("canvas");
+            var c = canvas.getContext("2d");
+            var radius = 50;
+    
+            function drawCircle(mouseX, mouseY) {
+                c.clearRect(0, 0, canvas.width, canvas.height)
+                c.beginPath();
+                c.arc(mouseX, mouseY, radius, 0, 2 * Math.PI, false);
+                c.fillStyle = 'black';
+                c.fill();
+    
+                c.lineWidth = 4;
+                c.strokeStyle = 'black';
+                c.stroke();
+            }
+    
+            canvas.addEventListener('mousemove', function(e) {
+                drawCircle(e.clientX, e.clientY);
+            });
+    
+            canvas.addEventListener('mouseout', function(e) {
+                c.clearRect(0, 0, canvas.width, canvas.height);
+            });
+    
+            drawCircle(canvas.width / 3, canvas.height / 2);
+    
+        </script>
+</body>
+</html>

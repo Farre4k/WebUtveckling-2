@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BildSpel</title>
+
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        div {
+            margin: 50px;
+        }
+
+        button {
+            margin-top: 80px;
+            float: left;
+            height: 50px;
+            font-size: 2em;
+        }
+
+        img {
+            float: left;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    </style>
+
+    <script>
+        var images = ['messi.jpg', 'chelsea.jpg', 'Lampard.jpg', 'drogba.jpg']
+        var num = 0;
+
+        function next() {
+            var slider = document.getElementById('slider');
+            num++;
+            if (num >= images.length) {
+                num = 0;
+            }
+            slider.src = images[num];
+        }
+
+        function prev() {
+            var slider = document.getElementById('slider');
+            num--;
+            if (num < 0) {
+                num = images.length - 1;
+            }
+            slider.src = images[num];
+        }
+    </script>
+</head>
+
+
+<body>
+    <div>
+
+        <button onclick="prev()"> &#8592 </button>
+        <img id="slider" src="messi.jpg" width="450px" height="225px" />
+        <button onclick="next()"> &#8594 </button>
+    </div>
+
+</body></html>

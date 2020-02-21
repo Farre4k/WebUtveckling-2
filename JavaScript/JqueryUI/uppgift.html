@@ -1,0 +1,276 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Resizable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <style>
+        #resizable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: rgb(238, 11, 49);
+            position: absolute;
+            max-width: 260px;
+            max-height: 260px;
+            min-width: 150px;
+            min-height: 150px;
+
+        }
+
+        #resizable h3 {
+            text-align: center;
+            margin: 0;
+            color: white;
+            background-color: rgba(0, 217, 255, 0.911);
+            display: block;
+            font-family: arial;
+            font-size: 18px;
+
+        }
+
+        #tabs {
+            height: 35%;
+            width: 30%;
+            left: 22%;
+            position: absolute;
+            float: right;
+            overflow: scroll;
+        }
+
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 280px;
+            position: absolute;
+            top: 300px;
+        }
+
+        #sortable li {
+            color: rgb(0, 140, 255);
+            margin: 0 3px 3px 3px;
+            padding: 0.4em;
+            padding-left: 1.4em;
+            font-size: 1em;
+            height: 15px;
+        }
+
+        #sortable li span {
+            position: absolute;
+            margin-left: -1.3em;
+            color: orange;
+        }
+
+        #draggable {
+            width: 120px;
+            height: 90px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px 10px 10px 0;
+            margin-left: 329px;
+            margin-top: 280px;
+            font-family: Arial;
+            background-color: aqua;
+
+        }
+
+        #droppable {
+            width: 200px;
+            height: 120px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px;
+            margin-left: -149px;
+            margin-top: 400px;
+            font-family: Arial;
+            color: black;
+            display: flex;
+            align-items: center;
+        }
+
+        #droppable p {
+            margin-left: 65px;
+        }
+
+        #spin {
+            position: absolute;
+            top: 600px;
+        }
+
+        #spinner{
+            width: 140px;
+        }
+
+        #menu {
+            position: absolute;
+            left: 850px;
+        }
+
+        .delete {
+            cursor: pointer;
+        }
+
+        #datum{
+            position: absolute;
+            left: 850px;
+            top: 300px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+
+    <script>
+
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+
+        function addSong() {
+            var title = $('#spil').val();
+            var element = '<li>' + title + ' <span style="color: red;" class="delete">&#10006</span></li>';
+            $('#spel').append(element);
+            $('.delete').click(deleteSong);
+        }
+
+
+        function deleteSong() {
+            $(this).parent().remove();
+        }
+
+        function init() {
+            $('#add').click(addSong);
+            $('.delete').click(deleteSong);
+        }
+        $(document).ready(init);
+
+
+        $(function () {
+            $("#spinner").spinner({
+                spin: function (event, ui) {
+                    if (ui.value > 10) {
+                        $(this).spinner("value", -10);
+                        return false;
+                    } else if (ui.value < -10) {
+                        $(this).spinner("value", 10);
+                        return false;
+                    }
+                }
+            });
+        });
+        $(function () {
+            $("#resizable").resizable();
+        });
+
+        $(function () {
+            $("#tabs").tabs();
+        });
+
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+
+        $(function () {
+            $("#draggable").draggable();
+            $("#droppable").droppable({
+                drop: function (event, ui) {
+                    $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Dropped!");
+                }
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Resizable-->
+
+    <div id="resizable" class="ui-widget-content">
+        <h3 class="ui-widget-header">Ändra storlek!</h3>
+    </div>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Android</a></li>
+            <li><a href="#tabs-2">CSS</a></li>
+            <li><a href="#tabs-3">AngularJS</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p>Android is a mobile operating system based on a modified version of the Linux kernel and other open
+                source software, designed primarily for touchscreen mobile devices such as smartphones and tablets.
+                Android is developed by a consortium of developers known as the Open Handset Alliance, with the main
+                contributor and commercial marketer being Google.</p>
+        </div>
+        <div id="tabs-2">
+            <p>CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen,
+                paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all
+                at once.</p>
+        </div>
+        <div id="tabs-3">
+            <p>AngularJS is a JavaScript-based open-source front-end web framework mainly maintained by Google and by a
+                community of individuals and corporations to address many of the challenges encountered in developing
+                single-page applications. It aims to simplify both the development and the testing of such applications
+                by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM)
+                architectures, along with components commonly used in rich Internet applications.</p>
+
+        </div>
+
+    </div>
+
+    <!--Sortable-->
+
+    <ul id="sortable">
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 1</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 2</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 3</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 4</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 5</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 6</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nummer 7</li>
+    </ul>
+    <!--Drag- & droppable-->
+    <div id="draggable" class="ui-widget-content">
+        <p>Dra mig till målet!</p>
+    </div>
+
+    <div id="droppable" class="ui-widget-header">
+        <p>Släpp här!</p>
+    </div>
+
+    <p id="spin">
+        <label for="spinner">Välj ett värde:</label>
+        <input id="spinner" name="value">
+    </p>
+
+    <div id="menu">
+        <form action="#">
+            <label>Lägg till spel i listan:</label>
+            <br />
+            <input type="text" id="spil" />
+            <br />
+            <input type="button" id="add" value="Lägg till" />
+        </form>
+
+        <ul id="spel">
+            <li>Assassin's Creed <span style="color: red;" class="delete">&#10006</span></li>
+            <li>God of War <span style="color: red;" class="delete">&#10006</span></li>
+            <li>CS:GO <span style="color: red;" class="delete">&#10006</span></li>
+            <li>Fortnite <span style="color: red;" class="delete">&#10006</span></li>
+        </ul>
+    </div>
+
+    <p id="datum">Date: <input type="text" id="datepicker"></p>
+
+</body>
+
+</html>

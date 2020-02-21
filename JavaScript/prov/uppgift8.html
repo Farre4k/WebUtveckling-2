@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form id="Calc">
+        
+        Tal1 : <input type="text" id="Tal1"> <br>
+        Tal2 : <input type="text" id="Tal1"> <br>
+        
+        <input type="button" value="Multiplicera" onclick="Multi()">
+        <input type="button" value="Dividera" onclick="Division()"> <br><br>
+        
+        Summan är : 
+        
+    
+    </form>
+    
+    <script>
+        function Multi(){
+            var num1 = Number(document.Calc.Tal1.value);
+            var num2 = Number(document.Calc.Tal2.value);
+            
+            var res = num1 * num2;
+        }
+    </script>
+</body>
+</html>
