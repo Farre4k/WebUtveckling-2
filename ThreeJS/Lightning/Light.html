@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="three.js"></script>
+    <script src="OrbitControls.js"></script>
+
+    <script>
+
+        var scene, renderer, camera;
+        var cube;
+        var controls;
+
+        init();
+        animate();
+
+        function init(){
+            scene = new THREE.Scene();
+            renderer = new THREE.WebGLRenderer({antialias: true});
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            renderer.setSize(width, height);
+            document.body.appendChild(renderer.domElement);
+
+            camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
+            camera.position.y = 40;
+            camera.position.z = 100;
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            var cubeGeometry = new THREE.BoxGeometry(20,20,10);
+            var cubeMaterial = new THREE.MeshPhongMaterial({color: "yellow"});
+            cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            cube.position.set(0,0,0);
+            scene.add(cube);
+
+            var geometry = new THREE.PlaneGeometry(100, 100, 32);
+            var material = new THREE.MeshPhongMaterial({color: 0x0000ff, side: THREE.DoubleSide});
+            var plane = new THREE.Mesh(geometry, material);
+            plane.position.x = Math.PI / 2;
+            plane.position.y = -5;
+            plane.recieveShadow = true;
+            scene.add(plane);
+
+            //var light = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.5);
+            //scene.add(light);
+
+         //var directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+         //scene.add(directionalLight);
+         //directionalLight.position.set(10,10,5);
+         //var helper = new THREE.DirectionalLightHelper(directionalLight, 10);
+         //scene.add( helper);
+
+        //var light = new THREE.PointLight(0xffffff, 2, 200);
+        //light.position.set( 20, 15, 10);
+        //scene.add(light);
+        //var helper = new THREE.PointLightHelper(light);
+        //scene.add(helper);
+
+        var spotLight = new THREE.SpotLight(0xffffff, 2);
+        spotLight.position.set(50,50,50);
+        scene.add(spotLight);
+        var spotLightHelper = new THREE.SpotLightHelper(spotLight);
+        scene.add(spotLightHelper);
+
+        };
+
+        function animate(){
+            controls.update();
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+
+        }
+
+       </script>
+</body>
+</html>

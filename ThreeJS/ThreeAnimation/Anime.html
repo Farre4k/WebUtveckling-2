@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src=""></script>
+</head>
+<body>
+
+    <script>
+            var scene = new THREE.scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+            camera.position.y = 3;
+            camera.position.z = 3;
+            var renderer = new THREE.WebGLRenderer({antialias: true});
+            renderer.setClearColor("#b0e0e6");
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            var geometry = new THREE.BoxGeometry(70,0.5,3);
+            
+        
+        </script>
+    
+</body>
+</html>
